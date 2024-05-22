@@ -55,8 +55,8 @@ TBlendType    currentBlending;
 
 I setup();
 
-- vi feltene ovenfor for å initiere LED lysene.
-- bruker predefinerte paletter fra biblioteket for hvert av palettobjektene våre.
+- Vi bruker feltene ovenfor for å initiere LED lysene.
+- Bruker predefinerte paletter fra biblioteket for hvert av palettobjektene våre.
 - Velger hvilket palett vi starter med, og velger hvilken blend(sjekk dokumentasjonen til biblioteket)
 - Bestemmer hvordan vi ønsker at knappene våre skal oppføre seg.
 
