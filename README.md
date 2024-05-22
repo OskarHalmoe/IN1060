@@ -118,6 +118,14 @@ void fyllLEDsMedPalettFarger(uint8_t fargeIndeks) {
 }
 ```
 
+I endrePalett();
+
+- Sjekker hvilket av palett-objektene som er aktive
+- Endrer til plaett 2 om palett 1 er aktiv
+- Endrer til palett 3 om palett 2 er aktiv
+- Endrer til palett 1 om palett 3 er aktiv
+
+
 ```c++
 void endrePalett() {
     if (currentPalette == &palette1) {
@@ -129,6 +137,12 @@ void endrePalett() {
     }
 }
 ```
+I haandterKnappeTrykk();
+
+- Setter statusen til BUTTON_PIN i variablen knappStatusNaa.
+- Sjekker statusen til knappen, og bruker enumerasjonsverdiene vi laget øverst for å bedømme hvilken tilstand knappen har.
+- Når det har gått tilstrekkelig med tid (se koden for hvor mye tid jeg har bestemt), kaller vi på endrePalett metoden.
+- Så setter vi knappen tilbake til "ikke-aktiv" status "BUTTON_IDLE".
 
 ```c++
 void haandterKnappeTrykk(){
@@ -151,7 +165,11 @@ void haandterKnappeTrykk(){
   }
 }
 ```
+I haandterLEDs();
 
+- Oppretter et uint8_t objekt.
+- Bruker 8-bits objektet som parameter i metoden for å fylle opp lyslenken.
+- Sørger for at LEDene oppdateres og regulerer hvor ofte de kan oppdateres per sekund. 
 ```c++
 void haandterLEDs(){
 
@@ -165,6 +183,9 @@ void haandterLEDs(){
 
 }
 ```
+I skruAvLEDs();
+
+- Skrur av LEDs ;)
 
 ```c++
 void skruAvLEDs(){
