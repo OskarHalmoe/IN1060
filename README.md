@@ -51,7 +51,7 @@ TBlendType    currentBlending;
 ```
 
 
-I setup():
+I setup();
 
 - vi feltene ovenfor for å initiere LED lysene.
 - bruker predefinerte paletter fra biblioteket for hvert av palettobjektene våre.
@@ -78,7 +78,7 @@ void setup() {
 }
 ```
 
-I loop():
+I loop();
 
 - Leser statusen til switchpin og setter den i variablen switchStatus.
 - Sjekker status på bryteren, om HIGH kaller vi på metodene for knapp & lyshåndtering.
@@ -97,7 +97,15 @@ void loop() {
   }
 }
 ```
-okoko
+I fyllLEDsMedPalettFarger(unit8_t fargeIndeks);
+
+Formålet til denne metoden er å gi en estetisk fargeeffekt som bruker palettene vi har opprettet. 
+
+- Vi setter lysstyrken til 255 (unit8_t er et 8-bits heltall objekt)
+- Vi itererer gjenn hver eneste LED i lyslenka.
+- Vi setter fargen til den nåværende LEDen ved å hente en farge fra det nåværende palettet.
+- Går 3 farger frem i paletten for neste LED
+
 
 ```c++
 void fyllLEDsMedPalettFarger(uint8_t fargeIndeks) {
