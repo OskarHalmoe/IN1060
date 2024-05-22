@@ -49,7 +49,7 @@ TBlendType    currentBlending;
 ```
 
 
-I setup();
+## setup();
 
 - Starter med en delay av sikkerhetsmessige grunner for både LEDene og systemet.
 - Vi bruker feltene ovenfor for å initiere LED lysene.
@@ -76,7 +76,7 @@ void setup() {
 }
 ```
 
-I loop();
+## loop();
 
 - Leser statusen til switchpin og setter den i variablen switchStatus.
 - Sjekker status på bryteren, om HIGH kaller vi på metodene for knapp & lyshåndtering.
@@ -93,7 +93,7 @@ void loop() {
   }
 }
 ```
-I fyllLEDsMedPalettFarger(unit8_t fargeIndeks);
+## fyllLEDsMedPalettFarger(unit8_t fargeIndeks);
 
 Formålet til denne metoden er å gi en estetisk fargeeffekt som bruker palettene vi har opprettet. 
 
@@ -113,7 +113,7 @@ void fyllLEDsMedPalettFarger(uint8_t fargeIndeks) {
 }
 ```
 
-I endrePalett();
+## endrePalett();
 
 - Sjekker hvilket av palett-objektene som er aktive
 - Endrer til plaett 2 om palett 1 er aktiv
@@ -132,7 +132,7 @@ void endrePalett() {
     }
 }
 ```
-I haandterKnappeTrykk();
+## haandterKnappeTrykk();
 
 - Setter statusen til BUTTON_PIN i variablen knappStatusNaa.
 - Sjekker statusen til knappen, og bruker enumerasjonsverdiene vi laget øverst for å bedømme hvilken tilstand knappen har.
@@ -155,7 +155,7 @@ void haandterKnappeTrykk(){
   }
 }
 ```
-I haandterLEDs();
+## haandterLEDs();
 
 - Oppretter et uint8_t objekt.
 - Bruker 8-bits objektet som parameter i metoden for å fylle opp lyslenken.
@@ -169,7 +169,7 @@ void haandterLEDs(){
   FastLED.delay(1000 / UPDATES_PER_SECOND);
 }
 ```
-I skruAvLEDs();
+## skruAvLEDs();
 
 - Skrur av LEDs ;)
 
