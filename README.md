@@ -13,7 +13,7 @@ Koden nedenfor er ganske grundig forklart og det kommer av at jeg antar du som l
 # Forklaring av kode
 
 
-Her inkluderer jeg biblioteket og definenerer nødvendige deler av biblioteket for å kunne initiere LED-stripen.
+Her inkluderer vi biblioteket og definenerer nødvendige deler av biblioteket for å kunne initiere LED-stripen.
 ```c++
 
 #include <FastLED.h>
