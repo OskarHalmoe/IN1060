@@ -8,6 +8,7 @@
 </span>
 
 # Kode
+
 ```c++
 
 #include <FastLED.h>
@@ -20,7 +21,11 @@
 #define SWITCH_PIN      12 //forandre basert på hva du vil bruke
 CRGB leds[NUM_LEDS];
 #define UPDATES_PER_SECOND 100
+```
 
+Jeg vil sterkt anbefale å lese dokumentasjonen til biblioteket du trenger å bruke, spesielt om det er FastLED. De aller fleste av definisjonene ovenfor er nødvendige for å initialisere en LED stripe
+
+```c++
 //oppretter tilstander for knappene
 
 enum ButtonState {
