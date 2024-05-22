@@ -27,6 +27,8 @@ CRGB leds[NUM_LEDS];
 Jeg vil sterkt anbefale å lese dokumentasjonen til biblioteket du trenger å bruke, spesielt om det er FastLED. De aller fleste av definisjonene ovenfor er nødvendige for å initialisere en LED stripe.
 Her er det bare å forandre definisjonenen til det du skulle trenge - se på denne koden som et eksempel:)!
 
+Nedenfor ser de en enumerasjon av knapp_statuser og hvordan man initierer diverse paletter som biblioteket FastLED tilbyr.
+
 ```c++
 
 enum ButtonState {
@@ -47,7 +49,7 @@ CRGBPalette16 palette3;
 CRGBPalette16* currentPalette;
 TBlendType    currentBlending;
 ```
-
+kjh
 
 ```c++
 void setup() {
@@ -68,6 +70,7 @@ void setup() {
     pinMode(SWITCH_PIN, INPUT_PULLUP);
 }
 ```
+jhg
 
 ```c++
 void loop() {
@@ -82,6 +85,7 @@ void loop() {
   }
 }
 ```
+okoko
 
 ```c++
 void fyllLEDsMedPalettFarger(uint8_t fargeIndeks) {
