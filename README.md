@@ -24,7 +24,8 @@ CRGB leds[NUM_LEDS];
 #define UPDATES_PER_SECOND 100
 ```
 
-Jeg vil sterkt anbefale å lese dokumentasjonen til biblioteket du trenger å bruke, spesielt om det er FastLED. De aller fleste av definisjonene ovenfor er nødvendige for å initialisere en LED stripe
+Jeg vil sterkt anbefale å lese dokumentasjonen til biblioteket du trenger å bruke, spesielt om det er FastLED. De aller fleste av definisjonene ovenfor er nødvendige for å initialisere en LED stripe.
+Her er det bare å forandre definisjonenen til det du skulle trenge - se på denne koden som et eksempel:)!
 
 ```c++
 
