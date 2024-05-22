@@ -34,20 +34,16 @@ Nedenfor ser du en enumerasjon av knapp_statuser og hvordan man initierer divers
 ```c++
 
 enum ButtonState {
-
-  BUTTON_IDLE, //knapp ikke trykket
-  BUTTON_PRESSED, //knapp trykket
-  BUTTON_RELEASED //knapp sluppet
-
+  BUTTON_IDLE, 
+  BUTTON_PRESSED, 
+  BUTTON_RELEASED
 };
 
 ButtonState knappStatus = BUTTON_IDLE;
 unsigned long sistKnappeTrykk = 0;
-
 CRGBPalette16 palette1;
 CRGBPalette16 palette2;
 CRGBPalette16 palette3;
- 
 CRGBPalette16* currentPalette;
 TBlendType    currentBlending;
 ```
@@ -55,6 +51,7 @@ TBlendType    currentBlending;
 
 I setup();
 
+- Starter med en delay av sikkerhetsmessige grunner for både LEDene og systemet.
 - Vi bruker feltene ovenfor for å initiere LED lysene.
 - Bruker predefinerte paletter fra biblioteket for hvert av palettobjektene våre.
 - Velger hvilket palett vi starter med, og velger hvilken blend(sjekk dokumentasjonen til biblioteket)
@@ -64,17 +61,16 @@ I setup();
 ```c++
 void setup() {
 
-    delay( 3000 ); // power-up sikkerhet for LED lyset. 
+    delay( 3000 );
     FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalLEDStrip );
     FastLED.setBrightness(  BRIGHTNESS );
-
-    //opretter palettene
 
     palette1 = RainbowColors_p;
     palette2 = OceanColors_p;
     palette3 = LavaColors_p;
-    currentPalette = &palette1; // Starter med palett1
+    currentPalette = &palette1;
     currentBlending = LINEARBLEND;
+
     pinMode(BUTTON_PIN, INPUT_PULLUP);
     pinMode(SWITCH_PIN, INPUT_PULLUP);
 }
@@ -88,12 +84,10 @@ I loop();
 
 ```c++
 void loop() {
-
   int switchStatus = digitalRead(SWITCH_PIN);
   if (switchStatus == HIGH) {
     haandterKnappeTrykk();
     haanderLEDs();
-
   } else {
     skruAvLEDs();
   }
@@ -112,7 +106,6 @@ Formålet til denne metoden er å gi en estetisk fargeeffekt som bruker paletten
 ```c++
 void fyllLEDsMedPalettFarger(uint8_t fargeIndeks) {
     uint8_t lysstyrke = 255;
-
     for (int i = 0; i < NUM_LEDS; i++) {
         leds[i] = ColorFromPalette(*currentPalette, fargeIndeks, lysstyrke, currentBlending);
         fargeIndeks += 3;
@@ -148,18 +141,13 @@ I haandterKnappeTrykk();
 
 ```c++
 void haandterKnappeTrykk(){
-
-  //Leser knappen
   int knappStatusNaa = digitalRead(BUTTON_PIN);
-
-  //sjekker om knappen er trykket
   if (knappStatusNaa == LOW && knappStatus != BUTTON_PRESSED){
     knappStatus = BUTTON_PRESSED;
     sistKnappeTrykk = millis();
   } else if (knappStatusNaa == HIGH && knappStatus == BUTTON_PRESSED){
     knappStatus = BUTTON_RELEASED;
-  }
-  //forsikrer oss om at det har gått lang nok tid fra knappetrykket til palettet endrer seg. 
+  } 
   if (knappStatus == BUTTON_PRESSED && millis() - sistKnappeTrykk >= 100){
     Serial.println("knapp -> OFF -> ON");
     endrePalett();
@@ -174,15 +162,11 @@ I haandterLEDs();
 - Sørger for at LEDene oppdateres og regulerer hvor ofte de kan oppdateres per sekund. 
 ```c++
 void haandterLEDs(){
-
   static uint8_t startIndeks = 0;
   startIndeks++;
-
   fyllLEDsMedPalettFarger(startIndeks);
-
   FastLED.show();
   FastLED.delay(1000 / UPDATES_PER_SECOND);
-
 }
 ```
 I skruAvLEDs();
@@ -191,10 +175,8 @@ I skruAvLEDs();
 
 ```c++
 void skruAvLEDs(){
-
   FastLED.clear();
   FastLED.show();
-
 }
 
 ```
