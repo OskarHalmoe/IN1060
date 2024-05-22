@@ -10,6 +10,8 @@
 
 # Forklaring av kode
 
+
+Her inkluderer jeg biblioteket og definenerer nødvendige deler av biblioteket for å kunne initiere LED-stripen.
 ```c++
 
 #include <FastLED.h>
@@ -24,10 +26,8 @@ CRGB leds[NUM_LEDS];
 #define UPDATES_PER_SECOND 100
 ```
 
-Jeg vil sterkt anbefale å lese dokumentasjonen til biblioteket du trenger å bruke, spesielt om det er FastLED. De aller fleste av definisjonene ovenfor er nødvendige for å initialisere en LED stripe.
-Her er det bare å forandre definisjonenen til det du skulle trenge - se på denne koden som et eksempel:)!
 
-Nedenfor ser de en enumerasjon av knapp_statuser og hvordan man initierer diverse paletter som biblioteket FastLED tilbyr.
+Nedenfor ser du en enumerasjon av knapp_statuser og hvordan man initierer diverse paletter som biblioteket FastLED tilbyr.
 
 ```c++
 
@@ -49,12 +49,19 @@ CRGBPalette16 palette3;
 CRGBPalette16* currentPalette;
 TBlendType    currentBlending;
 ```
-kjh
+
+
+I setup():
+
+- vi feltene ovenfor for å initiere LED lysene.
+- bruker predefinerte paletter fra biblioteket for hvert av palettobjektene våre.
+- Velger hvilket palett vi starter med, og velger hvilken blend(sjekk dokumentasjonen til biblioteket)
+- Bestemmer hvordan vi ønsker at knappene våre skal oppføre seg.
+
 
 ```c++
 void setup() {
 
-    Serial.begin(9600);
     delay( 3000 ); // power-up sikkerhet for LED lyset. 
     FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalLEDStrip );
     FastLED.setBrightness(  BRIGHTNESS );
@@ -70,7 +77,12 @@ void setup() {
     pinMode(SWITCH_PIN, INPUT_PULLUP);
 }
 ```
-jhg
+
+I loop():
+
+- Leser statusen til switchpin og setter den i variablen switchStatus.
+- Sjekker status på bryteren, om HIGH kaller vi på metodene for knapp & lyshåndtering.
+- Skrur av lysene om LOW.
 
 ```c++
 void loop() {
