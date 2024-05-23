@@ -3,6 +3,7 @@
 Denne koden er fra våren 2024 og består av c++ kode som er skrevet i Arduino IDE. Linken til vår prosjektside finner du her: [Erstatterne](https://www.uio.no/studier/emner/matnat/ifi/IN1060/v24/prosjektgrupper/erstatterne/)
 . Der vil du finne litt om hvordan prosjektet vårt utartet seg gjennom vårsemesteret. Du vil også finne selve prototypen vår og hvordan koden som forklares her inne fungerer i praksis.
 
+Hvis du bare er ute etter kodefilen så finner du den som en .ino fil overnfor.
 
 
 
