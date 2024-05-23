@@ -1,9 +1,9 @@
 # Erstatterne "Noe å ha i bokhylla" IN1060 2024
 
 Denne koden er fra våren 2024 og består av c++ kode som er skrevet i Arduino IDE. Linken til vår prosjektside finner du her: [Erstatterne](https://www.uio.no/studier/emner/matnat/ifi/IN1060/v24/prosjektgrupper/erstatterne/)
-der vil du finne litt om hvordan prosjektet vårt utartet seg gjennom vårsemesteret. Du vil også finne selve prototypen vår, og hvordan koden jeg forklarer her inne ser ut i praksis 🤠
+. Der vil du finne litt om hvordan prosjektet vårt utartet seg gjennom vårsemesteret. Du vil også finne selve prototypen vår og hvordan koden som forklares her inne fungerer i praksis.
 
-Koden nedenfor er ganske grundig forklart og det kommer av at jeg antar du som leser dette ikke egentlig vet helt hva du skal gjøre i IN1060 og trenger noe inspirasjon. Om du har endt opp her tilfeldig så håper jeg du også kan dra nytte fra dette spetaklet. Om du er student på IFI og har spørsmål angående koden er det bare å finne meg i gangen i 3. etasje😙
+
 
 
 Ну, всё, счастливого пути. Удачи!  😁
